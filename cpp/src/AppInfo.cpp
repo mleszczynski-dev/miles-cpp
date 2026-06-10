@@ -15,7 +15,6 @@
 
 #include <format>
 
-const std::string AppInfo::asio_version = std::format("{}.{}.{}", ASIO_VERSION / 100000, ASIO_VERSION / 100 % 1000, ASIO_VERSION % 100);
 const std::string AppInfo::nlohmann_json_version = std::format("{}.{}.{}", NLOHMANN_JSON_VERSION_MAJOR, NLOHMANN_JSON_VERSION_MINOR, NLOHMANN_JSON_VERSION_PATCH);
 const std::string AppInfo::spdlog_version = std::format("{}.{}.{}", SPDLOG_VER_MAJOR, SPDLOG_VER_MINOR, SPDLOG_VER_PATCH);
 
@@ -70,7 +69,6 @@ nlohmann::ordered_json AppInfo::toJson()
         app_info["compiler version"] = compiler_version;
         app_info["cpu architecture"] = cpu_architecture;
         app_info["build type"] = build_type;
-        app_info["asio version"] = asio_version;
         app_info["nlohmann/json version"] = nlohmann_json_version;
         app_info["spdlog version"] = spdlog_version;
         return app_info;

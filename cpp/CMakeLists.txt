@@ -4,14 +4,10 @@ find_package(spdlog REQUIRED)
 
 add_library(${PROJECT_NAME} STATIC
     "include/AppInfo.h"
-    #"include/JsonFile.h"
-    #"include/LoggerFilesystemPath.h"
-    #"include/LoggerInitializer.h"
+    "include/LoggerFilesystemPath.h"
+    "include/LoggerInitializer.h"
     "src/AppInfo.cpp"
-    #"src/JsonFile.cpp"
-    #"src/LoggerInitializer.cpp"
-    "include/Dummy.h"
-    "src/Dummy.cpp"
+    "src/LoggerInitializer.cpp"
 )
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE
@@ -21,8 +17,6 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE
 target_include_directories(${PROJECT_NAME} PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>
-    #${ASIO_DIR}/include
-    #${NLOHMANN_JSON_DIR}/include
 )
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
