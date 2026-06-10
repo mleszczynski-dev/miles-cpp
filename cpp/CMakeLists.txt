@@ -1,11 +1,13 @@
 project("miles-cpp-lib" LANGUAGES CXX)
 
+find_package(spdlog REQUIRED)
+
 add_library(${PROJECT_NAME} STATIC
-    #"include/AppInfo.h"
+    "include/AppInfo.h"
     #"include/JsonFile.h"
     #"include/LoggerFilesystemPath.h"
     #"include/LoggerInitializer.h"
-    #"src/AppInfo.cpp"
+    "src/AppInfo.cpp"
     #"src/JsonFile.cpp"
     #"src/LoggerInitializer.cpp"
     "include/Dummy.h"
@@ -21,13 +23,17 @@ target_include_directories(${PROJECT_NAME} PUBLIC
     $<INSTALL_INTERFACE:include>
     #${ASIO_DIR}/include
     #${NLOHMANN_JSON_DIR}/include
-    #${SPDLOG_DIR}/include
+)
+
+target_link_libraries(${PROJECT_NAME} PUBLIC
+    spdlog::spdlog
 )
 
 include(GNUInstallDirs)
 
 install(TARGETS ${PROJECT_NAME}
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
 )
 
 install(DIRECTORY include/
