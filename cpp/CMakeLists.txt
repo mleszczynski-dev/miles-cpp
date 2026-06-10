@@ -1,6 +1,7 @@
 project("miles-cpp-lib" LANGUAGES CXX)
 
 find_package(spdlog REQUIRED)
+find_package(nlohmann_json REQUIRED)
 
 add_library(${PROJECT_NAME} STATIC
     "include/AppInfo.h"
@@ -21,6 +22,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
     spdlog::spdlog
+    nlohmann_json::nlohmann_json
 )
 
 include(GNUInstallDirs)
