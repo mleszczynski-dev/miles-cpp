@@ -1,7 +1,5 @@
 #include "AppInfo.h"
 
-#include <asio/version.hpp>
-
 #pragma warning(push)
 #pragma warning(disable: 26819)
 #include <nlohmann/detail/abi_macros.hpp>
