@@ -1,9 +1,14 @@
-#include <iostream>
+#include <gtest/gtest.h>
 
-int main(int argc, char* argv[])
+#include "AppInfo.h"
+
+TEST(AppInfoTest, ToJsonNotEmpty)
 {
-    std::cout << "^^^^^^^^^^^^^^^^^\nTesting\n^^^^^^^^^^^^^^^^^" << std::endl;
-
-    return 0;
+    const auto json = AppInfo::toJson();
+    EXPECT_FALSE(json.empty());
 }
 
+TEST(AppInfoTest, ToStringNotEmpty)
+{
+    EXPECT_FALSE(AppInfo::toString().empty());
+}
