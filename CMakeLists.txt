@@ -2,6 +2,8 @@ cmake_minimum_required (VERSION 3.21.1)
 
 project("miles-cpp" LANGUAGES CXX)
 
+message(STATUS "Miles ver 1")
+
 message(STATUS "C++ compiler path: ${CMAKE_CXX_COMPILER}")
 message(STATUS "C++ compiler: ${CMAKE_CXX_COMPILER_ID}")
 message(STATUS "C++ compiler version: ${CMAKE_CXX_COMPILER_VERSION}")

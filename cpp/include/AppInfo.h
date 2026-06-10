@@ -14,7 +14,6 @@ public:
     static const std::string build_type;
     static const std::string cpu_architecture;
 
-    static const std::string asio_version;
     static const std::string nlohmann_json_version;
     static const std::string spdlog_version;
 
