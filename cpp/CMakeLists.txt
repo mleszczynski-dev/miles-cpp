@@ -5,14 +5,7 @@ find_package(nlohmann_json REQUIRED)
 
 add_library(${PROJECT_NAME} STATIC
     "include/AppInfo.h"
-    "include/LoggerFilesystemPath.h"
-    "include/LoggerInitializer.h"
     "src/AppInfo.cpp"
-    "src/LoggerInitializer.cpp"
-)
-
-target_compile_definitions(${PROJECT_NAME} PRIVATE
-    SPDLOG_ACTIVE_LEVEL=SPDLOG_LEVEL_TRACE
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC
