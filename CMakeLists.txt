@@ -51,9 +51,20 @@ add_library(${PROJECT_NAME} STATIC
 target_include_directories(
     ${PROJECT_NAME}
     PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/include
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>
     #${ASIO_DIR}/include
     #${NLOHMANN_JSON_DIR}/include
     #${SPDLOG_DIR}/include
+)
+
+include(GNUInstallDirs)
+
+install(TARGETS ${PROJECT_NAME}
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+)
+
+install(DIRECTORY include/
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME}
 )
 
