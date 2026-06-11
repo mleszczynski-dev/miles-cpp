@@ -4,7 +4,6 @@ find_package(spdlog REQUIRED)
 find_package(nlohmann_json REQUIRED)
 
 add_library(${PROJECT_NAME} STATIC
-    "include/AppInfo.h"
     "src/AppInfo.cpp"
 )
 
@@ -28,4 +27,3 @@ install(TARGETS ${PROJECT_NAME}
 install(DIRECTORY include/
     DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME}
 )
-

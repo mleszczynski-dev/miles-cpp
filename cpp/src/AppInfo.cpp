@@ -1,16 +1,7 @@
 #include "AppInfo.h"
 
-#pragma warning(push)
-#pragma warning(disable: 26819)
-#include <nlohmann/detail/abi_macros.hpp>
 #include <nlohmann/json.hpp>
-#pragma warning(pop)
-
-#pragma warning(push)
-#pragma warning(disable: 26819 6294 6385 26819 26498 26800 26495)
-#include <spdlog/spdlog.h>
-#pragma warning(pop)
-
+#include <spdlog/version.h>
 #include <format>
 
 const std::string AppInfo::nlohmann_json_version = std::format("{}.{}.{}", NLOHMANN_JSON_VERSION_MAJOR, NLOHMANN_JSON_VERSION_MINOR, NLOHMANN_JSON_VERSION_PATCH);
@@ -58,9 +49,9 @@ const std::string AppInfo::cpu_architecture =
 #error "Unknown cpu architecture"
 #endif
 
-nlohmann::ordered_json AppInfo::toJson()
+const nlohmann::ordered_json& AppInfo::toJson()
 {
-    static nlohmann::ordered_json app_info = []
+    static nlohmann::ordered_json app_info_json = []
     {
         nlohmann::ordered_json app_info;
         app_info["compiler name"] = compiler_name;
@@ -72,10 +63,10 @@ nlohmann::ordered_json AppInfo::toJson()
         return app_info;
     }();
 
-    return app_info;
+    return app_info_json;
 }
 
-std::string AppInfo::toString()
+const std::string& AppInfo::toString()
 {
     static std::string str = toJson().dump(4);
 

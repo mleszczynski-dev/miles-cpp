@@ -1,8 +1,6 @@
-cmake_minimum_required (VERSION 3.21.1)
+cmake_minimum_required(VERSION 3.21.1)
 
 project("miles-cpp" LANGUAGES CXX)
-
-message(STATUS "Miles ver 1")
 
 message(STATUS "C++ compiler path: ${CMAKE_CXX_COMPILER}")
 message(STATUS "C++ compiler: ${CMAKE_CXX_COMPILER_ID}")
@@ -15,4 +13,3 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 
 add_subdirectory(cpp)
 add_subdirectory(test)
-
